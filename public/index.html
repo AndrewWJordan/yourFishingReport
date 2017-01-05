@@ -9,6 +9,7 @@
   <meta name="description" content="YourFishingReport.com">
   <meta name="Andrew Jordan" content="Fishing reports and related information.">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.min.css" />
   <!--<link rel="stylesheet" href="css/styles.css">-->
 
   <!--[if lt IE 9]>
@@ -17,11 +18,83 @@
 </head>
 
 <body>
-	<h1>YourFishingReport.com</h1>
-  <h2>NY Fishing Data</h2>
-  <div id="table-data"></div>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Your Fishing Report</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Link</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          
+          <ul class="nav navbar-nav navbar-right">
+            <form class="navbar-form navbar-left">
+            <div class="form-group">
+              <input id="searchInput" type="text" class="form-control" placeholder="Search">
+            </div>
+            <input type="button" id="searchButton" class="btn btn-default" value="Submit">
+          </form>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+<div class="container-fluid">
+  <div class="alert alert-success" role="alert">This is where the good, bad, and the ugly alert text will go</div>
+  <div class="page-header">
+    <h1>YourFishingReport.com <small>Beta</small></h1>
+  </div>
+	
+  <div id="table-data">
+    <div class="progress">
+    <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+    <span class="sr-only">60% Complete</span>
+    </div>
+  </div>
+      <table id="result-table" class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Fish_spec</th>
+            <th>Point_x</th>
+            <th>Point_y</th>
+            <th>County</th>
+            <th>Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody> 
+      </table>  <!-- end of result-table  -->
+  </div>
   <div id="map-data"></div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.min.js"></script>
   <script src="js/js.js"></script>
+  </div>  <!-- end of container --> 
 </body>
 </html>
