@@ -1,9 +1,7 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
-<head>
+ <head>
   <meta charset="utf-8">
-
   <title>YourFishingReport.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="YourFishingReport.com">
@@ -15,6 +13,12 @@
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
+
+  <style>
+  #map { 
+  height: 100%;
+  }
+  </style>
 </head>
 
 <body>
@@ -48,11 +52,26 @@
         </tbody> 
       </table>  <!-- end of result-table  -->
   </div>
-  <div id="map-data"></div>
+  <div id="mapWrapper" style="height:500px; width:500px;">
+    <div id="map" style="height:100%"></div>
+  </div>  <!-- end of the mapWrapper  --> 
+    <script>
+      function initMap() {
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 41.933368, lng: -74.917755},
+          scrollwheel: false,
+          zoom: 15
+        });
+      }
+
+    </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.min.js"></script>
   <script src="js/js.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCerJ8aDB0jB_qIzorhkQqhPrQD3nleyYs&callback=initMap"
+    async defer></script>
   </div>  <!-- end of container --> 
 </body>
 </html>
