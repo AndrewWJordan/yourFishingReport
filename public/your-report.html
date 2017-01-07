@@ -1,0 +1,118 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>YourFishingReport.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="YourFishingReport.com">
+  <meta name="Andrew Jordan" content="Crowdsourced fishing reports and related fishery information.">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.min.css" />
+  <link rel="stylesheet" href="css/style.css">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+    <nav class="navbar navbar-default"></nav>
+
+    <div class="container-fluid">
+    <div id="formAlert" class="alert" role="alert"></div>
+    <div class="page-header">
+      <h1>Add your report for [body-of-water] <small>Beta</small></h1>
+    </div>
+     <form>
+      <div class="form-group">
+        <label for="exampleSelect1">Types of fish here</label>
+        <select class="form-control" id="exampleSelect1">
+          <option>Bass</option>
+          <option>Catfish</option>
+          <option>Trout</option>
+          <option>Pike</option>
+          <option>Salmon</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleSelect1">Did you catch any fish today?</label>
+        <select class="form-control" id="exampleSelect1">
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleSelect1">If yes, select the type(s) of fish</label>
+        <select multiple class="form-control" id="exampleSelect1">
+          <option>Bass</option>
+          <option>Catfish</option>
+          <option>Trout</option>
+          <option>Pike</option>
+          <option>Salmon</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleSelect2">Water condition</label>
+        <select multiple class="form-control" id="exampleSelect2">
+          <option>High</option>
+          <option>Normal</option>
+          <option>Low</option>
+          <option>Choppy</option>
+          <option>Strong</option>
+          <option>Murky</option>
+          <option>Crystal clear</option>
+        </select>
+        <small id="multiSelectHelp" class="form-text text-muted">Select multiple by pressing Shift, Control, or Command while clicking</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleTextarea">Current hatch or notable activity</label>
+        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputFile">Upload an image</label>
+        <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+        <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+      </div>
+      <fieldset class="form-group">
+        <legend>Rate this location</legend>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+            Meh. What a waste of time. I won't be returning.
+          </label>
+        </div>
+        <div class="form-check">
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+            I've had better, but still had fun. I'll be back.
+          </label>
+        </div>
+        <div class="form-check disabled">
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+            I honestly don't know I'm giving this spot away. I'm hooked!
+          </label>
+        </div>
+      </fieldset>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input">
+          Save this spot to my favorites.
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div id="table-data">
+    </div>
+        
+    </div> <!-- end of container -->
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.min.js"></script>
+  <script src="js/js.js"></script>
+  </div>  <!-- end of container --> 
+</body>
+</html>

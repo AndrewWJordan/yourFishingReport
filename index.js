@@ -1,3 +1,4 @@
+
 // include modules
 var    express = require('express'),
     app = express(),
@@ -20,7 +21,7 @@ app.use(less(path.join(__dirname,'source','less'),{
     force: true,
 }));
 // serve static content
-app.use(express.static(path.join(__dirname, 'public')));
+app.use("/", express.static(__dirname + '/public'));
 
 // setup server
 var server = app.listen(1337);

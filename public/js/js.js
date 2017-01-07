@@ -1,4 +1,8 @@
 $(document).ready(function(){
+  
+  // includes for navigation and repeated elements
+  $('nav').load('nav.html');
+
   // NY Recommended Fishing Streams and Rivers API
   var baseURL = 'https://data.ny.gov/resource/u3vi-zfp5.json?name=';
   
