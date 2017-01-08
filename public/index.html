@@ -51,12 +51,68 @@
   </div>  <!-- end of the mapWrapper  --> 
     <script>
       function initMap() {
+        var myLatLng = {lat: 41.933368, lng: -74.917755};
         // Create a map object and specify the DOM element for display.
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 41.933368, lng: -74.917755},
+          center: myLatLng,
           scrollwheel: false,
-          zoom: 15
+          zoom: 15,
+          mapTypeId: 'terrain',
+          zoomControl: true,
+          scaleControl: true,
+          rotateControl: true,
+          });
+
+          // add markers
+          var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Roscoe, NY'
+          });
+
+          // This event listener calls addMarker() when the map is clicked.
+        google.maps.event.addListener(map, 'click', function(event) {
+          addMarker(event.latLng, map);
         });
+
+        // Add a marker at the center of the map.
+        //addMarker(bangalore, map);
+
+      }  // end of initiMap()
+
+      // Adds a marker to the map.
+      function addMarker(location, map) {
+        // Add the marker at the clicked location, and add the next-available label
+        // from the array of alphabetical characters.
+        var marker = new google.maps.Marker({
+          position: location,
+          label: 'X',
+          draggable: true,
+          animation: google.maps.Animation.DROP,
+          map: map
+        });
+
+        // Data for the markers consisting of a name, a LatLng and a zIndex for the
+      // order in which these markers should display on top of each other.
+      /*var beaches = [
+        ['Bondi Beach', -33.890542, 151.274856, 4],
+        ['Coogee Beach', -33.923036, 151.259052, 5],
+        ['Cronulla Beach', -34.028249, 151.157507, 3],
+        ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+        ['Maroubra Beach', -33.950198, 151.259302, 1]
+      ];
+
+        for (var i = 0; i < beaches.length; i++) {
+          var beach = beaches[i];
+          var marker = new google.maps.Marker({
+            position: {lat: beach[1], lng: beach[2]},
+            map: map,
+            icon: image,
+            shape: shape,
+            title: beach[0],
+            zIndex: beach[3]
+          });
+        }*/
       }
 
     </script>
