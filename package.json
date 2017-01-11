@@ -1,0 +1,44 @@
+{
+  "name": "yourfishingreport",
+  "version": "1.0.0",
+  "description": "Log your own fishing report or look up others on nearby bodies of water.",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "less-middleware": "^2.2.0",
+    "middleware": "^1.0.0",
+    "mongodb": "^2.2.19"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndrewWJordan/yourFishingReport.git"
+  },
+  "keywords": [
+    "fishing",
+    "fishing",
+    "report",
+    "fishing",
+    "information",
+    "creek",
+    "lake",
+    "pond",
+    "river",
+    "stream",
+    "fish",
+    "type",
+    "fish",
+    "species",
+    "new",
+    "york"
+  ],
+  "author": "Andrew Jordan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndrewWJordan/yourFishingReport/issues"
+  },
+  "homepage": "https://github.com/AndrewWJordan/yourFishingReport#readme"
+}
