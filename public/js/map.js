@@ -68,10 +68,10 @@ function initMap() {
             var lat = marker.getPosition().lat();
             var lng = marker.getPosition().lng();
             // Save position to reportObj
-            reportObj.position = [lat, lng];
+            reportObj.position = [{'lat': lat}, {'lng': lng}];
             console.log(reportObj.position);
         } else {
-            userAlert('warning', "You can only add one marker per report.  You can drag it to a new location.");
+            userAlert('warning', "You can only add one marker per report.  However, you can drag the current marker to a new location.");
         }
       }
     // type can be any Bootstrap alert class (warning, success, etc)
@@ -81,7 +81,7 @@ function initMap() {
       $('#userAlert').removeClass();
       $('#userAlert').addClass('alert-' + type + ' alert');
       $('#userAlert').text(message);
-      $('#userAlert').fadeIn('slow');
+      $('#userAlert').fadeIn('slow').delay(5000).fadeOut('slow');
     }
 
     // Get position of marker and save to object

@@ -1,3 +1,7 @@
 .alert {
 	display: none;
 }
+
+#mapWrapper {
+    margin-bottom: 2em;
+}
