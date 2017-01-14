@@ -22,15 +22,17 @@
         <div id="userAlert" class="alert" role="alert"></div>
         <div id="dynamicContentWrapper">
             <div class="page-header">
-                <h1>Your location <small>Beta</small></h1>
-                <p>The map will center on your location. Click the map to place a marker in the desired location. You can also drag the marker, if needed.</p>
+                <h1>Sit tight... <small>Beta</small></h1>
+                <p>We are attempting to acquire your location. Once completed please click the map to add a marker in the desired location. A Marker can be dragged for exact placement.</p>
             </div>
+            <div class="loader"></div>
             <div id="mapWrapper" style="height:400px; width:100%;">
                 <div id="map" style="height:100%"></div>
             </div>
             <!-- end of the mapWrapper  -->
-            <input type="button" id="mapNextBtn" class="btn btn-primary" value="Next">
-        </div>  <!-- end of dynamicContentWrapper  -->
+            <input type="button" id="mapNextBtn" class="btn btn-primary" value="Continue">
+        </div>
+        <!-- end of dynamicContentWrapper  -->
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
