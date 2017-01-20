@@ -1,3 +1,4 @@
+
 var MongoClient = require('mongodb').MongoClient
   , assert = require('assert');
 
@@ -12,8 +13,12 @@ MongoClient.connect(url, function(err, db) {
 
   db.close();
 });
+
+
+
+
 // Insert 3 documents to the DB
-var insertDocuments = function(db, callback) {
+/*var insertDocuments = function(db, callback) {
   // Get the documents collection
   var collection = db.collection('documents');
   // Insert some documents
@@ -58,7 +63,7 @@ var findDocuments = function(db, callback) {
     console.log(docs)
     callback(docs);
   });
-}
+}*/
 
 
 

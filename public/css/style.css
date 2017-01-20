@@ -33,3 +33,7 @@ p {
         transform: rotate(360deg);
     }
 }
+
+#reportWrapper {
+    margin-bottom: 3em;
+}
