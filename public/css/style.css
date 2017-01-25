@@ -37,3 +37,15 @@ p {
 #reportWrapper {
     margin-bottom: 3em;
 }
+
+.indexIcons {
+    margin-top: 3em;
+}
+
+.indexIcons p {
+    margin-top: .7em;
+}
+
+.indexIcons i:hover, .indexIcons p:hover {
+    cursor: pointer;
+}

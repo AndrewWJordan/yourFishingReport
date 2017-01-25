@@ -1,148 +1,49 @@
-<div class="page-header">
-    <h1>Tell us about this location</h1>
-    <p>Provide any information others might find useful. Like best time to fish, what the fish are biting on, and current conditions.</p>
-</div>
-<div id="reportWrapper" class="col-md-12">
-    <form class="form-horizontal" action='/results' method="POST">
-        <div class="form-group">
-            <label for="bestTimeToFish">Best time to fish</label>
-            <select class="form-control" id="bestTimeToFish" name="bestTimeToFish">
-                <option>Anytime</option>
-                <option>Early morning</option>
-                <option>Late morning</option>
-                <option>Afternoon</option>
-                <option>Late afternoon</option>
-                <option>Early evening</option>
-                <option>Late evening</option>
-                <option>Night</option>
-                <option>Current conditions are not ideal for fishing at this time.</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="locationFishSpecies">Types of fish here</label>
-            <select class="form-control" id="locationFishSpecies" name="locationFishSpecies">
-                <option>Bass</option>
-                <option>Catfish</option>
-                <option>Trout</option>
-                <option>Pike</option>
-                <option>Salmon</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="catchAnything">Did you catch any fish today?</label>
-            <select class="form-control" id="catchAnything" name="catchAnything">
-                <option>Yes</option>
-                <option>No</option>
-                <option>Wasn't fishing</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="myCatchSpecies">If yes, select the type(s) of fish</label>
-            <select multiple class="form-control" id="myCatchSpecies" name="myCatchSpecies">
-                <option>Bass</option>
-                <option>Catfish</option>
-                <option>Trout</option>
-                <option>Pike</option>
-                <option>Salmon</option>
-            </select>
-            <small id="multiSelectHelp" class="form-text text-muted">Select multiple by pressing Shift, Control, or Command while clicking</small>
-        </div>
-        <div class="form-group">
-            <label for="locationWaterCond">Water condition</label>
-            <select multiple class="form-control" id="locationWaterCond" name="locationWaterCond">
-                <option>High</option>
-                <option>Normal</option>
-                <option>Low</option>
-                <option>Choppy</option>
-                <option>Strong</option>
-                <option>Murky</option>
-                <option>Crystal clear</option>
-            </select>
-            <small id="multiSelectHelp" class="form-text text-muted">Select multiple by pressing Shift, Control, or Command while clicking</small>
-        </div>
-        <div class="form-group">
-            <label for="locationActivity">Current hatch or notable activity</label>
-            <textarea class="form-control" id="locationActivity" name="locationActivity" rows="3"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="myComments">Comments</label>
-            <textarea class="form-control" id="myComments" name="myComments" rows="3"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="myImage">Upload an image</label>
-            <input type="file" class="form-control-file" id="myImage" name="myImage" aria-describedby="fileHelp">
-            <small id="fileHelp" class="form-text text-muted">You can upload an image no larger than 2MB and in png or jpg format.</small>
-        </div>
-        <fieldset class="form-group">
-            <legend>Rate this location</legend>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input rating" name="locationRating" id="locationRatingBad" value="Not good" checked> I don't recommend it. I won't be returning.
-                </label>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>YourFishingReport.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="YourFishingReport.com">
+    <meta name="Andrew Jordan" content="Crowdsourced fishing reports and related fishery information.">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+    <nav class="navbar navbar-default"></nav>
+    <div class="container-fluid">
+        <div id="userAlert" class="alert" role="alert"></div>
+        <div id="dynamicContentWrapper">
+            <div class="page-header">
+                <h1>Sit tight...</h1>
+                <p>We are attempting to acquire your location. Once completed please click the map to add a marker in the desired location. A Marker can be dragged for exact placement.</p>
             </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input rating" name="locationRating" id="locationRatingOk" value="Decent"> Not the best, but I still had fun. I'll be back.
-                </label>
+            <div class="loader"></div>
+            <div id="mapWrapper" style="height:400px; width:100%;">
+                <div id="map" style="height:100%"></div>
             </div>
-            <div class="form-check disabled">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input rating" name="locationRating" id="locationRatingGreat" value="Great"> This is great! I'm hooked!
-                </label>
-            </div>
-        </fieldset>
-        <div class="form-check">
-            <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="saveToFavorites" name="saveToFavorites"> Save this spot to my favorites.
-            </label>
+            <!-- end of the mapWrapper  -->
+            <input type="button" id="mapNextBtn" class="btn btn-primary" value="Continue">
         </div>
-        <!--<input type="button" id="reportFormBtn" class="btn btn-primary" value="Finish">-->
-        <button type="submit">Submit</button>
-    </form>
-</div>
-<!-- end of the speciesWrapper  -->
+        <!-- end of dynamicContentWrapper  -->
+    </div>
 
-<script>
-    $(document).ready(function() {
-            // To grab values of these form fields
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.min.js"></script>
+    <script src="js/report.js"></script>
+    <script src="js/includes.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/js.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCerJ8aDB0jB_qIzorhkQqhPrQD3nleyYs&callback=initMap" async defer></script>
+    
+</body>
 
-            $('#bestTimeToFish, #locationFishSpecies, #catchAnything, #myCatchSpecies, #locationWaterCond, #locationActivity, #myComments, #myImage, input[name="locationRating"], #saveToFavorites').on('blur', function(event) {
-                if (!$(this).val() == '') {
-                    data = $(this).val();
-                    key = $(this).attr('id');
-                    if (key == 'locationFishSpecies') {
-                        reportObj.locationFishSpecies = data;
-                    } else if (key == 'bestTimeToFish') {
-                        reportObj.bestTimeToFish = data;
-                    } else if (key == 'catchAnything') {
-                        reportObj.catchAnything = data;
-                    } else if (key == 'myCatchSpecies') {
-                        reportObj.myCatchSpecies = data;
-                    } else if (key == 'locationWaterCond') {
-                        reportObj.locationWaterCond = data;
-                    } else if (key == 'locationActivity') {
-                        reportObj.locationActivity = data;
-                    } else if (key == 'myComments') {
-                        reportObj.myComments = data;
-                    } else if (key == 'myComments') {
-                        reportObj.myComments = data;
-                    } else if (key == 'myImage') {
-                        reportObj.myImage = data;
-                    } else if (key == 'locationRatingBad' || key == 'locationRatingOk' || key == 'locationRatingGreat') {
-                        reportObj.locationRating = data;
-                    } else if (key == 'saveToFavorites') {
-                        reportObj.saveToFavorites = data;
-                    }
-                }
-            })
-            $('#reportFormBtn').on('click', function() {
-                console.log(reportObj);
-                $('#reportWrapper').fadeOut('fast');
-                userAlert('success', "Success!");
-                $('.page-header h1').text('Got it!');
-                $('.page-header p').text('We\'re going to share this information with other fishermen and women like you.  Keep reporting quality information to increase your respect levels and earn pretty sweet badges. Thank you!');
-            })
-
-        }) // end of doc.ready
-
-</script>
+</html>

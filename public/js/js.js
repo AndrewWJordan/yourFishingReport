@@ -46,6 +46,6 @@ $(document).ready(function () {
     // Triggered when the user clicks the Next submit button
     // Loads the next form field grouping
     $('#mapNextBtn').on('click', function () {
-        $('#dynamicContentWrapper').load('report.html').fadeIn('slow');
+        $('#dynamicContentWrapper').load('form.html').fadeIn('slow');
     })
 });
