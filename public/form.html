@@ -98,15 +98,22 @@
         </div>
         <!--<input type="button" id="reportFormBtn" class="btn btn-primary" value="Finish">-->
         <button type="submit">Submit</button>
+        <input type="hidden" name="myLat" id="locationLat">
+        <input type="hidden" name="myLng" id="locationLng">
+        <input type="hidden" name="dateTime" id="dateTime">
     </form>
 </div>
 <!-- end of the speciesWrapper  -->
 
 <script>
     $(document).ready(function() {
+        $('#locationLat').val(reportObj.position.lat);
+        $('#locationLng').val(reportObj.position.lng);
+        $('#dateTime').val(new Date);
+        
             // To grab values of these form fields
 
-            $('#bestTimeToFish, #locationFishSpecies, #catchAnything, #myCatchSpecies, #locationWaterCond, #locationActivity, #myComments, #myImage, input[name="locationRating"], #saveToFavorites').on('blur', function(event) {
+            /*$('#bestTimeToFish, #locationFishSpecies, #catchAnything, #myCatchSpecies, #locationWaterCond, #locationActivity, #myComments, #myImage, input[name="locationRating"], #saveToFavorites').on('blur', function(event) {
                 if (!$(this).val() == '') {
                     data = $(this).val();
                     key = $(this).attr('id');
@@ -141,7 +148,7 @@
                 userAlert('success', "Success!");
                 $('.page-header h1').text('Got it!');
                 $('.page-header p').text('We\'re going to share this information with other fishermen and women like you.  Keep reporting quality information to increase your respect levels and earn pretty sweet badges. Thank you!');
-            })
+            }) */
 
         }) // end of doc.ready
 

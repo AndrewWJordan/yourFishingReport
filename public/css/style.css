@@ -1,9 +1,22 @@
+a, .btn {
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+}
+
 h1 {
     color: #418109;
 }
 p {
     font-size: 1.3em;
 }
+
+.page-header p {
+    max-width: 500px;
+}
+
 .alert {
     display: none;
 }
